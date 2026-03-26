@@ -59,6 +59,11 @@ Let's build something fun, Yujeong.
 └── uv.lock
 ```
 
+## Optional AI guidance files
+
+If your real project wants agent-specific instructions, add `AGENTS.md` and/or `CLAUDE.md` later
+with project-specific guidance. This template does not ship opinionated defaults for them.
+
 ## Quality defaults
 
 This template is intentionally strict by default:
