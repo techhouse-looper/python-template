@@ -1,20 +1,23 @@
 # python-template
 
-A minimal Python template with strict defaults for projects that want to stay small, typed, and
-easy to maintain.
+A small Python starter with strict defaults, fast feedback, and a package layout that scales past
+the first weekend.
 
-## What this template includes
+The goal is simple: start from a clean baseline, keep the toolchain boring, and make quality checks
+cheap enough to run all the time.
+
+## Defaults
 
 - `uv` for dependency and lockfile management
-- `src/` layout with Hatchling-based packaging
-- Click-powered CLI entry point
-- Ruff, Pyright, and pytest configured as the default quality bar
-- GitHub Actions for CI, build validation, and tag-based release artifacts
+- `src/` layout with Hatchling packaging
+- Click for a minimal CLI entry point
+- Ruff, Pyright, and pytest as the default quality bar
+- GitHub Actions for CI, build validation, and release artifacts
 
 ## Quickstart
 
 ```bash
-uv sync --group dev
+make setup-dev
 make check
 python -m python_template --help
 ```
@@ -51,19 +54,19 @@ python -m python_template --help
 
 ## Quality defaults
 
-This template is intentionally strict:
+This template is intentionally strict by default:
 
 - **Ruff** enforces formatting, imports, docstrings, naming, typing hygiene, and common bug-prone
   patterns.
 - **Pyright** runs in `strict` mode.
 - **pytest** is the default regression layer.
 
-The goal is to start from a clean baseline and relax rules only when a real project constraint
-demands it.
+If a real project constraint justifies relaxing a rule, change it deliberately. The default posture
+is to keep the baseline tight.
 
 ## GitHub Actions
 
-The repository ships with three small workflows:
+The repository ships with three focused workflows:
 
 - `ci.yml` — lint, typecheck, and test on Python 3.11–3.13
 - `build.yml` — build the package and smoke-test the generated wheel
