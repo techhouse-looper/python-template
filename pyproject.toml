@@ -1,0 +1,108 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "python-template"
+dynamic = ["version"]
+description = "A minimal, strict Python project template for real-world applications."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Yujeong" },
+]
+keywords = ["python", "template", "uv", "click", "github-actions"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Build Tools",
+]
+dependencies = [
+  "click>=8.1.8",
+]
+
+[project.scripts]
+python-template = "python_template.__main__:cli"
+
+[project.urls]
+Homepage = "https://github.com/techhouse-looper/python-template"
+Repository = "https://github.com/techhouse-looper/python-template"
+Issues = "https://github.com/techhouse-looper/python-template/issues"
+
+[dependency-groups]
+dev = [
+  "build>=1.3.0",
+  "pre-commit>=4.3.0",
+  "pyright>=1.1.405",
+  "pytest>=8.4.0",
+  "pytest-cov>=7.0.0",
+  "ruff>=0.12.0",
+]
+
+[tool.hatch.version]
+path = "src/python_template/__about__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/python_template"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "ANN",
+  "ARG",
+  "B",
+  "C4",
+  "D",
+  "E",
+  "EM",
+  "F",
+  "I",
+  "N",
+  "PIE",
+  "PTH",
+  "RET",
+  "RUF",
+  "SIM",
+  "T20",
+  "TC",
+  "UP",
+  "W",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["D100", "D103"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pyright]
+pythonVersion = "3.11"
+include = ["src", "tests"]
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
+
+[tool.coverage.run]
+source = ["python_template"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
