@@ -20,6 +20,13 @@ cheap enough to run all the time.
 make setup-dev
 make check
 python -m python_template --help
+python -m python_template hello
+```
+
+Sample output:
+
+```text
+Let's build something fun, Yujeong.
 ```
 
 ## Core commands

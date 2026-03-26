@@ -30,8 +30,32 @@ def test_module_cli_help_runs() -> None:
         text=True,
     )
 
-    assert "Show the template version and default tasks." in result.stdout
+    assert "Show the template defaults and example commands." in result.stdout
     assert "Usage:" in result.stdout
+
+
+def test_module_cli_hello_runs_with_default_name() -> None:
+    """Run the example hello command with the default name."""
+    result = subprocess.run(
+        [sys.executable, "-m", "python_template", "hello"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert "Let's build something fun, Yujeong." in result.stdout
+
+
+def test_module_cli_hello_accepts_a_custom_name() -> None:
+    """Run the example hello command with an explicit name."""
+    result = subprocess.run(
+        [sys.executable, "-m", "python_template", "hello", "--name", "friend"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert "Let's build something fun, friend." in result.stdout
 
 
 def test_package_exports_version() -> None:
