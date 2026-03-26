@@ -19,8 +19,8 @@ cheap enough to run all the time.
 ```bash
 make setup-dev
 make check
-python -m python_template --help
-python -m python_template hello
+uv run python -m python_template --help
+uv run python -m python_template hello
 ```
 
 Sample output:
