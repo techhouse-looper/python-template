@@ -1,4 +1,4 @@
-# python-template
+# python-template 🐍
 
 A small Python starter with strict defaults, fast feedback, and a package layout that scales past
 the first weekend.
